@@ -79,10 +79,8 @@ import {onMounted, ref, watch} from 'vue';
 import {useLayoutStore} from "stores/layout-store";
 import {useSettingsStore} from "stores/settings-store";
 import {useQuasar} from "quasar";
-import {usePlaylistStore} from "stores/playlist-store";
 import TemplateThumb from "components/TemplateThumb.vue";
 import {useRouter} from "vue-router";
-import {useMediaStore} from "stores/media-store";
 import LoaderSpinner from "../components/LoaderSpinner.vue";
 
 const mainVolume = ref(10);
@@ -92,8 +90,6 @@ const $q = useQuasar();
 const router = useRouter();
 const layoutStore = useLayoutStore();
 const settings = useSettingsStore();
-const playListStore = usePlaylistStore();
-const mediaStore = useMediaStore();
 const audioInputDevices = ref();
 
 $q.dark.set(true);
@@ -113,8 +109,6 @@ function toggleLeftDrawer() {
 }
 
 onMounted(async () => {
-  await playListStore.retrieveFromDB();
-  await mediaStore.retrieveFromDB();
 
   audioInputDevices.value = await getAudioInputs();
   settings.setAudioInputDevice(audioInputDevices.value[0]);
@@ -122,7 +116,7 @@ onMounted(async () => {
 
   settings.setLoading(false);
 
-  await router.push('/setup');
+  await router.push('/display');
 })
 
 async function getAudioInputs() {

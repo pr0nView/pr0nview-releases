@@ -1,6 +1,4 @@
 import {defineStore} from 'pinia';
-import {getLayouts, storeLayout} from "src/services/DatabaseController";
-import {createUUID} from "../../shared/Utils";
 
 export const useLayoutStore = defineStore('layoutstore', {
   state: () => ({
@@ -64,17 +62,6 @@ export const useLayoutStore = defineStore('layoutstore', {
     }
   },
   actions: {
-    async retrieveFromDB() {
-      this.layouts = await getLayouts();
-    },
-    async saveActiveLayout() {
-      await storeLayout(this.layouts[this.currentLayout]);
-    },
-    async saveDefaultLayouts() {
-      for (const layout of this.layouts) {
-        await storeLayout(layout);
-      }
-    },
     setLayout(layoutId: any) {
       this.currentLayout = layoutId;
     },

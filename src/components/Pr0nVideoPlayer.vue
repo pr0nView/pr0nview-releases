@@ -94,16 +94,14 @@
 </template>
 
 <script setup lang="ts">
-import {computed, onMounted, ref, shallowRef, toRaw, watch} from 'vue';
+import {computed, ref, toRaw, watch} from 'vue';
 import {VideoPlayer} from "@videojs-player/vue";
 import {usePlayerStore} from "stores/video-store";
-import {usePlaylistStore} from "stores/playlist-store";
 import {useQuasar} from "quasar";
 import {createUUID} from "../../shared/Utils";
 import PlaylistBuilder from "components/PlaylistBuilder.vue";
 import 'video.js/dist/video-js.css'
 import {COMPATIBLE_VIDEO_FORMATS, CUSTOM_PROTOCOL, IRREGULAR_CHARACTERS} from "../../shared/Settings";
-import CreateNewPlaylist from "./CreateNewPlaylist.vue";
 import FileListButton from "./FileListButton.vue";
 import {useSettingsStore} from "stores/settings-store";
 
@@ -124,7 +122,6 @@ let currentPlaylistIndex = 0;
 
 const $q = useQuasar();
 const playerStore = usePlayerStore();
-const playListStore = usePlaylistStore();
 const settingsStore = useSettingsStore();
 const isDragging = ref(false);
 const busyConvertingFile = ref(false);
@@ -141,21 +138,6 @@ const playerId = props.initialArea;
 defineExpose({
   getState
 })
-
-function handleCreatePlaylist() {
-  $q.dialog({
-    component: CreateNewPlaylist,
-    componentProps: {
-      fileList: localPlaylist.value
-    }
-  }).onOk(() => {
-    console.log('OK')
-  }).onCancel(() => {
-    console.log('Cancel')
-  }).onDismiss(() => {
-    console.log('Called on OK or Cancel')
-  })
-}
 
 const showHeaderAndFooter = computed(() => {
   if (settingsStore.presentationMode) return false;
@@ -185,24 +167,6 @@ const playerGridArea = computed(() => {
 const playMode = computed(() => {
   return randomActive.value ? PLAYMODE.RANDOM : PLAYMODE.SEQUENTIAL;
 });
-/*
-window.api.receive(`progress-update-${playerId}`, (progress: number) => {
-  conversionProgress.value = progress / 100;
-});
-
-window.api.receive(`video-stream-data`, (progress: number) => {
-  console.log(progress);
-});
-
-window.api.receive(`conversion-complete-${playerId}`, (convertedVideo: string) => {
-  busyConvertingFile.value = false;
-  currentLoadedVideo.value = {
-    fileName: convertedVideo.split('\\').pop() as string,
-    filePath: convertedVideo.split('\\').slice(0, -1).join('\\'),
-    metaData: {},
-    duration: 0
-  }
-});*/
 
 watch(mouseIsOver, (newValue) => {
   if (newValue) {

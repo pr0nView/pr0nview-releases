@@ -1,5 +1,4 @@
 import {defineStore} from 'pinia';
-import {deleteMedia, getMedia, getPlaylists, storeMedia} from "../services/DatabaseController";
 import {toRaw} from "vue";
 import {createUUID} from "../../shared/Utils";
 
