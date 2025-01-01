@@ -3,16 +3,14 @@
 </p>
 
 <p align="center">
-  Short description
+  The multimedia grid display system
   <br>
-  <a href="https://reponame/issues/new?template=bug.md">Report bug</a>
+  <a href="https://github.com/pr0nView/pr0nview-releases/issues/new?template=bug.md">Report bug</a>
   ·
-  <a href="https://reponame/issues/new?template=feature.md&labels=feature">Request feature</a>
+  <a href="https://github.com/pr0nView/pr0nview-releases/issues/new?template=feature.md&labels=feature">Request feature</a>
 </p>
 
-# Welcome to pr0nView
-
-## Table of contents
+# Table of contents
 
 - [Quick start](#quick-start)
 - [Status](#status)
@@ -23,19 +21,19 @@
 - [Thanks](#thanks)
 - [Copyright and license](#copyright-and-license)
 
-## What is it?
+# What is it?
 
 pr0n Viewer
 
-## Features
+# Features
 
 pr0n Viewer
 
-## Upcoming Features
+# Upcoming Features
 
 pr0n Viewer
 
-## Roadmap
+# Roadmap
 
 pr0n Viewer
 
@@ -63,6 +61,6 @@ quasar dev
 quasar build
 ```
 
-### Customize the configuration
+## Copyright and license
 
-See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
+Code and documentation copyright 2023-2024 the authors. Code released under the [MIT License](https://reponame/blob/master/LICENSE).
