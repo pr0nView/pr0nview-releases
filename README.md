@@ -42,6 +42,15 @@
 - [Creators](#creators)
 - [Copyright and license](#copyright-and-license)
 
+
+# Donations
+
+**pr0nView** is released under the GNU Public License. We rely on donations to keep the project open-source and free from ads. To contribute financially to its development, you can use [PayPal](https://www.paypal.com/donate/?hosted_button_id=B4RCXADZAJ4JN) or [Patreon](patreon.com/pr0nView).
+<p align="center">
+  <a href="https://www.paypal.com/donate/?hosted_button_id=B4RCXADZAJ4JN"><img src="public/donate.png" width="130" alt="pr0nView logo"/></a>
+  <a href="patreon.com/pr0nView"><img src="public/patreon.png" width="130" alt="pr0nView logo"/></a>
+</p>
+
 # Description
 
 **pr0nView** is a desktop application for Windows and Mac that allows the user to display multiple locally-stored videos and images at the same time in an intuitive and simple interface. It supports drag-and-drop of files from the filesystem, as well as browsing for images and videos directly from the players. Several possible layouts of video and image grids are already included. Quality of life functionality includes
@@ -161,14 +170,6 @@ Have a bug or a feature request? Please first read the [issue guidelines](https:
 # Creators
 
 **pr0nView** is made with ♥ by [Dominic Lee](https://github.com/dominicLee) of [Radical Media](https://www.radicalmedia.co.za).
-
-# Donations
-
-**pr0nView** is released under the GNU Public License. We rely on donations to keep the project open-source and free from ads. To contribute financially to its development, you can use [PayPal](https://www.paypal.com/donate/?hosted_button_id=B4RCXADZAJ4JN) or [Patreon](patreon.com/pr0nView).
-<p align="center">
-  <a href="https://www.paypal.com/donate/?hosted_button_id=B4RCXADZAJ4JN"><img src="public/donate.png" width="130" alt="pr0nView logo"/></a>
-  <a href="patreon.com/pr0nView"><img src="public/patreon.png" width="130" alt="pr0nView logo"/></a>
-</p>
 
 ## Copyright and license
 
