@@ -1,0 +1,25 @@
+body {
+  font-family: "Geist", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.pv {
+  &-text {
+    &-heading-1 {
+      font-size: 18px;
+      margin-bottom: 3px;
+    }
+    &-heading-2 {
+      font-size: 14px;
+      margin-bottom: 3px;
+    }
+    &-body-1 {
+      font-size: 14px;
+    }
+    &-body-2 {
+      font-size: 12px;
+    }
+  }
+}

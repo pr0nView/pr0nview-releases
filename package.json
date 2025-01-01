@@ -1,0 +1,52 @@
+{
+  "name": "pr0nview",
+  "version": "0.0.4",
+  "description": "An app to show multiple slideshows and videos on a single interface",
+  "productName": "pr0nview",
+  "author": "dominiclee",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "quasar dev --mode electron",
+    "build": "quasar build --mode electron --publish always"
+  },
+  "dependencies": {
+    "@electron-toolkit/preload": "^3.0.1",
+    "@quasar/extras": "^1.16.15",
+    "@videojs-player/vue": "^1.0.0",
+    "axios": "1.7.9",
+    "case": "^1.6.3",
+    "dayjs": "^1.11.13",
+    "image-size": "^1.2.0",
+    "mediainfo.js": "^0.3.4",
+    "pinia": "^2.3.0",
+    "quasar": "^2.6.0",
+    "systeminformation": "^5.23.5",
+    "uuid": "^11.0.3",
+    "video.js": "^7.0.0",
+    "videojs-flash": "^2.2.1",
+    "vite-plugin-node-polyfills": "^0.22.0",
+    "vue": "^3.4.18",
+    "vue-plugin-load-script": "^2.1.1",
+    "vue-router": "^4.0.12",
+    "vuedraggable": "^4.1.0"
+  },
+  "devDependencies": {
+    "@electron/packager": "^18.3.6",
+    "@quasar/app-vite": "^2.0.4",
+    "@quasar/icongenie": "^4.0.0",
+    "@types/node": "^22.10.2",
+    "@vue/devtools": "^7.6.8",
+    "autoprefixer": "^10.4.2",
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8",
+    "electron-devtools-installer": "^4.0.0",
+    "electron-rebuild": "^3.2.9",
+    "typescript": "^5.2.2"
+  },
+  "engines": {
+    "node": "^20 || ^18 || ^16",
+    "npm": ">= 6.13.4",
+    "yarn": ">= 1.21.1"
+  }
+}

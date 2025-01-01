@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "shared": [
+        "./shared"
+      ],
+      "shared/*": [
+        "./shared/*"
+      ],
+      "services": [
+        "./src/services"
+      ],
+      "services/*": [
+        "./src/services/*"
+      ],
+      "models": [
+        "./src/models"
+      ],
+      "models/*": [
+        "./src/models/*"
+      ],
+      "stores": [
+        "./src/stores"
+      ],
+      "stores/*": [
+        "./src/stores/*"
+      ]
+    }
+  },
+  "extends": "./.quasar/tsconfig.json"
+}
