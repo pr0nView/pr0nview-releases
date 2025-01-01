@@ -40,10 +40,6 @@
 
         </q-btn>
         <q-separator vertical></q-separator>
-        <div id="donate-button-container" style="max-width: 120px" class="q-mx-md">
-          <div id="donate-button"></div>
-        </div>
-        <q-separator vertical></q-separator>
         <q-btn class="q-ml-md" color="accent" label="Panic Button"></q-btn>
       </q-toolbar>
       <q-separator></q-separator>

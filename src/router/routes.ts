@@ -6,18 +6,9 @@ const routes: RouteRecordRaw[] = [
     component: () => import('layouts/MainLayout.vue'),
     children: [
       {
-        path: '/setup',
-        component: () => import('pages/Setup.vue')
-      },
-      {
         path: '/display',
         component: () => import('pages/GridDisplay.vue')
-      },
-      {
-        path: '/settings',
-        component: () => import('pages/SettingsDialog.vue')
       }
-
     ],
   },
   // Always leave this as last one,
