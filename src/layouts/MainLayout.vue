@@ -2,7 +2,6 @@
   <q-layout view="hHh LpR fFf" class="bg-dark">
     <q-header>
       <q-toolbar class="bg-dark text-accent">
-        <q-btn flat stretch icon="menu" aria-label="Menu" @click="toggleLeftDrawer"></q-btn>
         <img src="~/assets/pronview-logo-white.svg" style="max-height: 40px" class="q-ml-md">
         <q-separator vertical class="q-ml-lg"></q-separator>
         <q-toggle color="accent" v-model="settings.presentationMode" class="q-mr-md" label="Focus Mode"/>
@@ -32,23 +31,6 @@
       </q-toolbar>
       <q-separator></q-separator>
     </q-header>
-    <q-drawer v-model="leftDrawerOpen" side="left" overlay bordered :width="400">
-      <q-list bordered separator>
-        <q-item clickable active-class="text-accent" v-ripple :to="item.path"
-                v-for="(item, index) in settings.menuItems">
-          <q-item-section avatar>
-            <q-avatar>
-              <q-icon size="md" :name="item.icon"></q-icon>
-            </q-avatar>
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>{{ item.label }}</q-item-label>
-            <q-item-label caption>{{ item.caption }}</q-item-label>
-          </q-item-section>
-        </q-item>
-
-      </q-list>
-    </q-drawer>
     <q-page-container>
       <q-page class="flex flex-center" v-if="settings.showFullScreenLoader">
         <LoaderSpinner :loading-text="settings.fullScreenLoaderText"></LoaderSpinner>
@@ -84,7 +66,7 @@ $q.dark.set(true);
 settings.setLoading(true, 'Performing bootup tasks');
 
 watch(mainVolume, (newVal) => {
-  window.api.setVolume(newVal/100);
+  window.api.setVolume(newVal);
 })
 
 function changeLayout(index: number) {

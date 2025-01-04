@@ -1,4 +1,5 @@
 import {contextBridge, ipcRenderer, dialog} from 'electron'
+import loudness from "loudness";
 import {MAIN_REQUESTS} from "../shared/Settings";
 import {webUtils} from 'electron'
 
@@ -10,7 +11,7 @@ contextBridge.exposeInMainWorld('api', {
     return await ipcRenderer.invoke(MAIN_REQUESTS.DRAG_DROP_FILES, {allFiles, playerId, fileTypes});
   },
   setVolume: async (_volume: number) => {
-    console.log(_volume);
+    await loudness.setVolume(_volume);
   },
   getWindowsDrives: async () => {
     return await ipcRenderer.invoke(MAIN_REQUESTS.GET_WINDOWS_DRIVES);

@@ -21,6 +21,7 @@
     "mediainfo.js": "^0.3.4",
     "pinia": "^2.3.0",
     "quasar": "^2.6.0",
+    "loudness": "^0.4.2",
     "systeminformation": "^5.23.5",
     "uuid": "^11.0.3",
     "video.js": "^7.0.0",
