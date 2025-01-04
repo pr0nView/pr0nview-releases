@@ -6,7 +6,7 @@
           <q-btn round icon="close" class="text-white" to="/"></q-btn>
         </div>
         <div>
-          <img src="/panic-google.png" class="panic-graphic" />
+          <img src="panic-google.png" class="panic-graphic" />
         </div>
       </q-page>
     </q-page-container>

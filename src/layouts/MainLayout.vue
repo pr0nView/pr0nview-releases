@@ -88,7 +88,7 @@ onMounted(async () => {
         env: 'production',
         hosted_button_id: 'B4RCXADZAJ4JN',
         image: {
-          src: '/donate.png',
+          src: 'donate.png',
           alt: 'Donate with PayPal button',
           title: 'PayPal - The safer, easier way to pay online!',
         }
