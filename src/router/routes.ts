@@ -11,8 +11,10 @@ const routes: RouteRecordRaw[] = [
       }
     ],
   },
-  // Always leave this as last one,
-  // but you can also remove it
+  {
+    path: '/panic',
+    component: () => import('pages/PanicButton.vue'),
+  },
   {
     path: '/:catchAll(.*)*',
     component: () => import('pages/ErrorNotFound.vue'),

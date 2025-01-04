@@ -1,6 +1,6 @@
 {
   "name": "pr0nview",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "An app to show multiple slideshows and videos on a single interface",
   "productName": "pr0nview",
   "author": "dominiclee",
@@ -8,7 +8,7 @@
   "type": "module",
   "scripts": {
     "dev": "quasar dev --mode electron",
-    "build": "quasar build --mode electron --publish always"
+    "build": "quasar build --mode electron"
   },
   "dependencies": {
     "@electron-toolkit/preload": "^3.0.1",

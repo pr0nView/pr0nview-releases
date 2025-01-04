@@ -12,30 +12,27 @@ let fileCount = 0;
 let mediainfo: MediaInfo | undefined;
 
 export async function recursiveFileFind(fileList: any, builderId: string, fileTypes: string[], startAt: number, receiverWindow?: any) {
-  mediainfo = await mediaInfoFactory();
-  recursiveFileCount = startAt;
   let returnFiles: any[] = [];
   for (const fileEntry of fileList) {
     const foundFile = await fs.promises.stat(fileEntry);
     if (foundFile.isFile() && fileTypes.includes(path.extname(fileEntry).toLowerCase())) {
       recursiveFileCount++;
       if (isVideoOrImage(fileEntry) === 'video') {
-        const videoFormatInfo = await getVideoInfo(fileEntry, foundFile.size);
-        //await generateThumbnail(filePath, createId);
         returnFiles.push({
           type: 'video',
           filePath: splitFileName(fileEntry).path,
-          fileName: splitFileName(fileEntry).filename,
-          metaData: videoFormatInfo
+          fileName: splitFileName(fileEntry).filename
         });
       } else if (isVideoOrImage(fileEntry) === 'image') {
-        const imageFormatInfo = sizeOf(fileEntry)
-        returnFiles.push({
-          type: 'image',
-          filePath: splitFileName(fileEntry).path,
-          fileName: splitFileName(fileEntry).filename,
-          metaData: imageFormatInfo as IImageMeta
-        });
+        try {
+          returnFiles.push({
+            type: 'image',
+            filePath: splitFileName(fileEntry).path,
+            fileName: splitFileName(fileEntry).filename
+          });
+        } catch(e) {
+          console.error(e);
+        }
       }
       if (receiverWindow) receiverWindow.webContents.send(builderId, {
         type: RESPONSES.FILE_COUNT,
@@ -47,7 +44,6 @@ export async function recursiveFileFind(fileList: any, builderId: string, fileTy
         return `${fileEntry}\\${file}`
       })
       const subFiles = await recursiveFileFind(directoryFiles, builderId, fileTypes, recursiveFileCount, receiverWindow);
-      recursiveFileCount += subFiles.length;
       returnFiles = returnFiles.concat(subFiles);
       if (receiverWindow) receiverWindow.webContents.send(builderId, {
         type: RESPONSES.FILE_COUNT,
@@ -55,7 +51,6 @@ export async function recursiveFileFind(fileList: any, builderId: string, fileTy
       });
     }
   }
-  mediainfo && mediainfo.close();
   return returnFiles;
 }
 

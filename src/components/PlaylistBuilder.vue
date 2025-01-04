@@ -13,7 +13,6 @@
     <q-card-actions align="center" class="q-mt-sm">
       <q-btn class="q-mx-sm" size="sm" label="Select Files" @click="spawnFileBrowser" color="accent"></q-btn>
       <q-btn class="q-mx-sm" size="sm"  label="Select Folder" @click="spawnFolderBrowser" color="accent"></q-btn>
-      <q-btn class="q-mx-sm" size="sm"  label="Load Playlist" @click="spawnFolderBrowser" color="accent"></q-btn>
     </q-card-actions>
   </q-card>
 </template>
@@ -93,7 +92,6 @@ async function handleDrop(ev: DragEvent) {
   isDragging.value = false;
   const transferredFiles = [...ev.dataTransfer.files];
   const filesSelected: any = await window.api.readFiles(transferredFiles, builderId, permittedFileTypes);
-  console.log(filesSelected);
   emit('registerFiles', filesSelected);
 }
 </script>

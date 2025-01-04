@@ -24,23 +24,11 @@
         <q-slider color="accent" style="max-width: 10vw" v-model="mainVolume" :min="0" :max="100" :step="10"></q-slider>
         <q-icon class="q-mx-sm" name="volume_up" size="md" color="accent"></q-icon>
         <q-separator vertical></q-separator>
-        <q-btn flat stretch icon="settings" name="settings" size="md" color="accent">
-          <q-menu>
-            <q-list style="min-width: 20vw">
-              <q-item>
-                <q-toggle v-model="settings.presentationMode" label="Presentation Mode"/>
-              </q-item>
-              <q-item>
-                <q-select label="Select Audio In" outlined dense v-model="settings.audioSetup.inputDevice"
-                          :options="audioInputDevices"></q-select>
-              </q-item>
-              <q-separator></q-separator>
-            </q-list>
-          </q-menu>
-
-        </q-btn>
+        <div id="donate-button-container" style="max-width: 120px" class="q-mx-md">
+          <div id="donate-button"></div>
+        </div>
         <q-separator vertical></q-separator>
-        <q-btn class="q-ml-md" color="accent" label="Panic Button"></q-btn>
+        <q-btn class="q-ml-md" color="accent" label="Panic Button" to="/panic"></q-btn>
       </q-toolbar>
       <q-separator></q-separator>
     </q-header>
@@ -75,6 +63,7 @@ import {onMounted, ref, watch} from 'vue';
 import {useLayoutStore} from "stores/layout-store";
 import {useSettingsStore} from "stores/settings-store";
 import {useQuasar} from "quasar";
+import {loadScript} from "vue-plugin-load-script";
 import TemplateThumb from "components/TemplateThumb.vue";
 import {useRouter} from "vue-router";
 import LoaderSpinner from "../components/LoaderSpinner.vue";
@@ -87,6 +76,8 @@ const router = useRouter();
 const layoutStore = useLayoutStore();
 const settings = useSettingsStore();
 const audioInputDevices = ref();
+
+let paypal: any;
 
 $q.dark.set(true);
 
@@ -105,40 +96,25 @@ function toggleLeftDrawer() {
 }
 
 onMounted(async () => {
-
-  audioInputDevices.value = await getAudioInputs();
-  settings.setAudioInputDevice(audioInputDevices.value[0]);
-  await setAudioDevice();
-
   settings.setLoading(false);
-
   await router.push('/display');
+
+  loadScript('https://www.paypalobjects.com/donate/sdk/donate-sdk.js')
+    .then(() => {
+      console.log('PayPal JS SDK loaded');
+      PayPal.Donation.Button({
+        env: 'production',
+        hosted_button_id: 'B4RCXADZAJ4JN',
+        image: {
+          src: '/donate.png',
+          alt: 'Donate with PayPal button',
+          title: 'PayPal - The safer, easier way to pay online!',
+        }
+      }).render('#donate-button');
+    })
+
 })
 
-async function getAudioInputs() {
-  try {
-    const devices = await navigator.mediaDevices.enumerateDevices();
-    return devices.filter(device => device.kind === 'audioinput');
-  } catch (error) {
-    console.error('Error enumerating audio devices:', error);
-  }
-}
-
-async function setAudioDevice() {
-  navigator.mediaDevices.getUserMedia({audio: {deviceId: settings.audioSetup.inputDevice}})
-    .then(function (stream) {
-      const audioContext = new AudioContext();
-      const microphoneSource = audioContext.createMediaStreamSource(stream);
-      const analyser = audioContext.createAnalyser();
-      microphoneSource.connect(analyser);
-      analyser.fftSize = 256; // Adjust the FFT size based on your visualization needs.
-      analyser.smoothingTimeConstant = 0.8; // Adjust the smoothing factor.
-
-    })
-    .catch(function (error) {
-      console.error('Error accessing selected microphone:', error);
-    });
-}
 </script>
 <style lang="scss">
 #donate-button-container {

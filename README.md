@@ -64,13 +64,13 @@ filesystem, as well as browsing for images and videos directly from the players.
 image grids are already included. Quality of life functionality includes
 
 - Only playing the audio of one video at a time using your mouse or keyboard shortcut
-- Adding multiple files to each "player" element that are played sequentially or randomly
-- Choose a new video or image from the player's playlist to view next
-- Control all video volume with a single slider so you don't have to manually adjust each one (although this is also
-  possible)
-- Set up a Panic Button (also known as a Bosskey) shortcut that instantly stops all **pr0nView** content and displays a
-  user-customisable screen.
-- A **Focus Mode** that will hide most UI elements for use on large displays
+  - Adding multiple files to each "player" element that are played sequentially or randomly
+  - Choose a new video or image from the player's playlist to view next
+  - Control all video volume with a single slider so you don't have to manually adjust each one (although this is also
+    possible)
+  - Set up a Panic Button (also known as a Bosskey) shortcut that instantly stops all **pr0nView** content and displays a
+    user-customisable screen.
+  - A **Focus Mode** that will hide most UI elements for use on large displays
 
 ## Possible use-cases
 
@@ -137,8 +137,8 @@ cannot be played back natively by HTML will be streamed to the video instance us
 
 ### Image Browser with thumbnails
 
-Using a folder tree and thumbnail display, you will be able to browse through the files on your computer. This mimcs the
-behaviour of software such as IrfanView and ACDSee.
+  Using a folder tree and thumbnail display, you will be able to browse through the files on your computer. This mimcs the
+  behaviour of software such as IrfanView and ACDSee.
 
 ### Local Database
 
@@ -190,17 +190,17 @@ If appetite exists, **pr0nView** will be distributed as a Linux app in addition 
 
 # Releases
 
-You can find the list of pre-built binaries [here](https://github.com/pr0nView/pr0nview-releases/releases).
+  You can find the list of pre-built binaries [here](https://github.com/pr0nView/pr0nview-releases/releases).
 
 > Latest release is [**v0.0.5-beta**](https://github.com/pr0nView/pr0nview-releases/releases/tag/v0.0.5-beta).
 
 # Privacy
 
-The developers of **pr0nView** take your privacy very seriously. The software installation can be protected with a
-password and can be customised not to access any outside servers or sites. One exception to this rule is to check for
-updates to the app, which can be managed manually or set according to rules specified by the user. **pr0nView** will *
-*always** ask for permission before accessing the internet. No data is shared between the software and the **pr0nView**
-server unless explicitly allowed.
+  The developers of **pr0nView** take your privacy very seriously. The software installation can be protected with a
+  password and can be customised not to access any outside servers or sites. One exception to this rule is to check for
+  updates to the app, which can be managed manually or set according to rules specified by the user. **pr0nView** will *
+  *always** ask for permission before accessing the internet. No data is shared between the software and the **pr0nView**
+  server unless explicitly allowed.
 
 # Bugs and feature requests
 

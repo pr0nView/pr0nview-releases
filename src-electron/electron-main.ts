@@ -1,4 +1,4 @@
-import {app, BrowserWindow, nativeTheme, net, protocol} from 'electron';
+import {app, BrowserWindow, nativeTheme, net, protocol, Menu} from 'electron';
 import path from 'path';
 import os from 'os';
 import fs from 'fs';
@@ -65,6 +65,7 @@ async function createWindow() {
   if (process.env.DEV) {
     await mainWindow.loadURL(process.env.APP_URL);
   } else {
+    Menu.setApplicationMenu(null);
     await mainWindow.loadFile('index.html');
   }
 
